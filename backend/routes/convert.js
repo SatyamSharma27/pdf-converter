@@ -86,7 +86,7 @@ const uploadMultiple = multer({ storage, limits: { fileSize: MAX_FILE_SIZE } })
 // ─── Helpers ──────────────────────────────────────────────────────────────────
 function buildDownloadUrl(req, filename) {
   const base = process.env.BASE_URL || `${req.protocol}://${req.get('host')}`;
-  return `${base}/outputs/${filename}`;
+ return `${base}/download/${filename}`;
 }
 
 function getOutputFilename(inputName, targetExt) {

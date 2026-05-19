@@ -63,6 +63,13 @@ app.use('/api/files',   filesRouter);
 
 // Serve converted files for download
 app.use('/outputs', express.static(path.join(__dirname, 'outputs')));
+app.get('/download/:file', (req, res) => {
+
+  const filePath = path.join(__dirname, 'outputs', req.params.file);
+
+  res.download(filePath);
+
+});
 
 // Health check
 app.get('/health', (_req, res) => res.json({ status: 'ok', timestamp: new Date() }));
