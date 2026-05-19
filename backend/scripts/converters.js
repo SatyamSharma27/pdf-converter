@@ -8,7 +8,7 @@ const fs = require('fs');
 
 // ✅ LibreOffice Path (Mac)
 const libreofficePath =
-  "/Applications/LibreOffice.app/Contents/MacOS/soffice";
+  process.env.LIBREOFFICE_PATH || "libreoffice";
 
 // ─────────────────────────────────────────────────────────────
 // Helper Function
