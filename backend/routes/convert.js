@@ -182,8 +182,7 @@ router.post('/', upload.single('file'), async (req, res, next) => {
       size: stat.size,
       sizeHuman: formatBytes(stat.size),
     });
-    console.log("response dat of convert", res.json())
-
+    
   } catch (err) {
     next(err);
   }
