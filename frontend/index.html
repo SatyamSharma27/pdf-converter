@@ -496,7 +496,7 @@ async function uploadFile(file) {
 
   try {
 
-    const res = await fetch("http://127.0.0.1:3000/api/convert", {
+    const res = await fetch("https://pdf-converter-backend-27ga.onrender.com/api/convert", {
       method: "POST",
       body: formData
     });
