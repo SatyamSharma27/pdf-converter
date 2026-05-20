@@ -28,9 +28,9 @@ app.use(helmet());
 
 // CORS – allow the frontend origin (update in production)
 app.use(cors({
-  origin: process.env.FRONTEND_ORIGIN || '*',
-  methods: ['GET', 'POST', 'DELETE'],
-   allowedHeaders: ["Content-Type"]
+  origin: "*",
+  methods: ["GET", "POST", "DELETE", "OPTIONS"],
+  allowedHeaders: ["Content-Type", "Authorization"]
 }));
 
 // Body parsing (JSON for non-file endpoints)
