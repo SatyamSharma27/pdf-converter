@@ -264,6 +264,33 @@
   @media (max-width: 480px) {
     .footer-grid { grid-template-columns: 1fr; }
   }
+.file-info {
+  flex: 1;
+}
+
+.progress-bar {
+  width: 100%;
+  height: 6px;
+  background: #333;
+  border-radius: 50px;
+  margin-top: 8px;
+  overflow: hidden;
+}
+
+.progress-fill {
+  height: 100%;
+  width: 0%;
+  background: linear-gradient(90deg, #e63946, #ff8a8a, #e63946);
+  background-size: 200% 100%;
+  border-radius: 50px;
+  transition: width 0.4s ease;
+  animation: loadingMove 1s linear infinite;
+}
+
+@keyframes loadingMove {
+  0% { background-position: 200% 0; }
+  100% { background-position: 0 0; }
+}
 </style>
 </head>
 <body>
@@ -486,6 +513,8 @@ uploadFile(file);
   fileStatus.style.display = 'flex';
 }
 async function uploadFile(file) {
+  const fill = document.getElementById("progressFill");
+fill.style.width = "35%";
 
   console.log("UPLOAD STARTED");
 
@@ -502,7 +531,7 @@ async function uploadFile(file) {
     });
 
     console.log("RESPONSE RECEIVED");
-
+fill.style.width = "100%";
     const text = await res.text();
 
     console.log("RAW RESPONSE:", text);
@@ -522,7 +551,7 @@ if (data.downloadUrl) {
   };
 }
   } catch (err) {
-
+fill.style.width = "0%";
     console.error("FETCH ERROR:", err);
 
    
