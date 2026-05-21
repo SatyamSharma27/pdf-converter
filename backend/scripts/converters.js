@@ -135,15 +135,7 @@ async function convertToPDF(inputPath, outputPath, sourceExt) {
 
     console.log("🖼️ IMAGE TO PDF");
 
-    await run('sips', [
-      '-s',
-      'format',
-      'pdf',
-      inputPath,
-      '--out',
-      outputPath
-    ]);
-
+   throw new Error("Image conversion temporarily disabled");
     return;
 
   }
